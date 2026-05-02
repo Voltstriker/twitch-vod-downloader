@@ -1,4 +1,4 @@
-# Twitch M3U8 Retrieval
+# Twitch VOD Downloader
 
 A Node.js utility to download Twitch streams and VODs with multiple resolution options.
 
@@ -28,24 +28,9 @@ Before setting up this project, ensure you have the following installed:
 
 1. **Clone or download this repository**
 
-   ```bash
-   cd "path/to/Twitch m3u8 Retrieval"
-   ```
+2. **Install dependencies:** `npm install`
 
-2. **Install dependencies**
-
-   ```bash
-   npm install
-   ```
-
-   This will install the required npm packages listed in `package.json`:
-   - `twitch-m3u8` - For retrieving Twitch stream URLs and resolutions
-
-3. **Verify setup**
-   ```bash
-   npm run get-url
-   ```
-   You should be prompted to enter a Twitch channel or VOD URL.
+3. **Ensure that yt-dlp is installed:** `yt-dlp --version`
 
 ## Usage
 
@@ -93,4 +78,10 @@ The download will start automatically using yt-dlp and save to your current dire
 
 This project is licensed under the Apache License 2.0. See [LICENSE](LICENSE) file for details.
 
-This project also uses the `twitch-m3u8` package for retrieving stream data.
+## Third-Party Licenses
+
+This project uses the following open-source package:
+
+- **twitch-m3u8** - Licensed under the MIT License
+  - Copyright (c) 2018 Samuel Dudik
+  - See: https://github.com/dudik/twitch-m3u8
