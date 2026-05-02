@@ -1,0 +1,10 @@
+{
+  "name": "twitch-m3u8-retrieval",
+  "type": "module",
+  "scripts": {
+    "get-url": "node get_url.js"
+  },
+  "dependencies": {
+    "twitch-m3u8": "^1.1.5"
+  }
+}
