@@ -2,7 +2,7 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "get-url",
+      "label": "Run Program",
       "type": "npm",
       "script": "get-url",
       "problemMatcher": [],
@@ -10,6 +10,20 @@
         "kind": "build",
         "isDefault": true
       }
+    },
+    {
+      "label": "Lint Code Using ESLint",
+      "type": "shell",
+      "command": "npm run lint",
+      "group": { "kind": "build", "isDefault": true },
+      "problemMatcher": []
+    },
+    {
+      "label": "Fix Code Using ESLint",
+      "type": "shell",
+      "command": "npm run lint:fix",
+      "group": { "kind": "build", "isDefault": true },
+      "problemMatcher": []
     }
   ]
 }
