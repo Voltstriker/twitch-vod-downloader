@@ -18,7 +18,7 @@ Before setting up this project, ensure you have the following installed:
 - **yt-dlp**
   - Windows:
     - Download from: https://github.com/yt-dlp/yt-dlp/releases
-    - Or install via: `winget install yt-dlp.yt-dlp`
+    - Or install via: `winget install yt-dlp`
     - Or install via Chocolatey: `choco install yt-dlp`
   - macOS: `brew install yt-dlp`
   - Linux: `pip install yt-dlp` or use your package manager
