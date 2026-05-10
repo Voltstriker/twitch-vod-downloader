@@ -50,33 +50,45 @@ rl.question("Enter the Twitch channel or VOD URL: ", (input) => {
         rl2.close();
         const selectedIndex = parseInt(choice);
         if (selectedIndex >= 0 && selectedIndex < resolutions.length) {
-          // Build the yt-dlp command with the selected URL
           const selectedResolution = resolutions[selectedIndex];
           const selectedUrl = results[selectedResolution];
 
-          // Start the download using yt-dlp
-          console.log(`\nDownload started for ${selectedResolution} VOD:`);
-          const ytdlp = spawn("yt-dlp", [selectedUrl]);
-
-          ytdlp.stdout.on("data", (data) => {
-            process.stdout.write(data);
+          // Ask for output filename
+          const rl3 = readline.createInterface({
+            input: process.stdin,
+            output: process.stdout,
           });
 
-          ytdlp.stderr.on("data", (data) => {
-            process.stderr.write(data);
-          });
+          rl3.question(
+            "\nEnter the output filename (e.g., video.mp4): ",
+            (filename) => {
+              rl3.close();
 
-          ytdlp.on("close", (code) => {
-            if (code === 0) {
-              console.log(`\nDownload complete!`);
-            } else {
-              console.error(`\nDownload failed with exit code ${code}`);
-            }
-          });
+              // Start the download using yt-dlp
+              console.log(`\nDownload started for ${selectedResolution} VOD:`);
+              const ytdlp = spawn("yt-dlp", ["-o", filename, selectedUrl]);
 
-          ytdlp.on("error", (error) => {
-            console.error(`Error spawning yt-dlp: ${error.message}`);
-          });
+              ytdlp.stdout.on("data", (data) => {
+                process.stdout.write(data);
+              });
+
+              ytdlp.stderr.on("data", (data) => {
+                process.stderr.write(data);
+              });
+
+              ytdlp.on("close", (code) => {
+                if (code === 0) {
+                  console.log(`\nDownload complete!`);
+                } else {
+                  console.error(`\nDownload failed with exit code ${code}`);
+                }
+              });
+
+              ytdlp.on("error", (error) => {
+                console.error(`Error spawning yt-dlp: ${error.message}`);
+              });
+            },
+          );
         } else {
           console.error("Invalid selection.");
         }
