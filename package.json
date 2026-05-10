@@ -1,6 +1,6 @@
 {
   "name": "twitch-m3u8-retrieval",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A simple Node.js script to retrieve Twitch VOD m3u8 URLs and download them using yt-dlp.",
   "author": "Voltstriker",
   "main": "get_url.js",
