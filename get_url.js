@@ -64,6 +64,11 @@ rl.question("Enter the Twitch channel or VOD URL: ", (input) => {
             (filename) => {
               rl3.close();
 
+              // Ensure the filename ends with .mp4
+              if (!filename.endsWith(".mp4")) {
+                filename += ".mp4";
+              }
+
               // Start the download using yt-dlp
               console.log(`\nDownload started for ${selectedResolution} VOD:`);
               const ytdlp = spawn("yt-dlp", ["-o", filename, selectedUrl]);
